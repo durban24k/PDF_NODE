@@ -3,21 +3,24 @@ const PDFGenerator=require('pdfkit');
 const fs=require('fs');
 const Router=express.Router();
 
-Router.get('/pdf',(req,res)=>{
+Router.post('/pdf',(req,res)=>{
      // instantiate the library
-     let theOutput = new PDFGenerator 
+     let doc = new PDFGenerator();
 
+     let {fileNo}=req.body;
+     // console.log(fileNo);
+
+     let pdfDoc = fs.createWriteStream(String(fileNo))
      // pipe to a writable stream which would save the result into the same directory
-     theOutput.pipe(fs.createWriteStream('TestDocument.pdf'));
-     
-     // theOutput.image('./logo.png', { fit: [500,155] });
+     doc.pipe(pdfDoc);
 
-     theOutput.text('Some awesome example text', { bold: true,
+     doc.text('Some awesome example text', { bold: true,
      underline: true,
      align: 'center'
      })
      // write out file
-     theOutput.end();
+     doc.end();
+     res.redirect('/');
+     
 });
-
 module.exports=Router;

@@ -10,8 +10,11 @@
 <body>
      <div class="container">
           <div class="pdf-card">
-               <h1>PDF GENERATOR</h1>
-               <a href="/route/pdf">Generate</a>
+               <form action="/route/pdf" method="POST">
+                    <h1>PDF GENERATOR</h1>
+                    <input type="text" name="fileNo" value="Sam - 02/02/2021" style="display:none;">
+                    <input type="submit" value="Generate">
+               </form>
           </div>
      </div>
 </body>

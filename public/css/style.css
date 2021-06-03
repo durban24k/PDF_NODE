@@ -30,7 +30,7 @@ a{
      left:50%;
      transform:translateX(-50%);
 }
-.pdf-card a{
+.pdf-card input[type=submit]{
      position:absolute;
      bottom:30%;
      left:50%;
@@ -39,7 +39,9 @@ a{
      padding:10px 20px;
      color:rgb(255, 255, 255);
      box-shadow: 1px 3px 3px rgb(26, 26, 26);
+     border:none;
+     cursor:pointer;
 }
-.pdf-card a:hover{
+.pdf-card input[type=submit]:hover{
      background:rgb(94, 177, 245);
 }
